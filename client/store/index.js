@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
-import { api, apiKey} from '../../config.json'
+import { apiUrl, apiKey} from '../../config.json'
 
 Vue.use(Vuex);
 
@@ -133,19 +133,19 @@ const actions = {
 const api = {
     current: (cityName, resolve, reject) => {
         axios
-            .get(`${api}?key=${apiKey}&q=${cityName}`)
+            .get(`${apiUrl}current.json?key=${apiKey}&q=${cityName}`)
             .then(resolve)
             .catch(reject);
     },
     search: (searchString, resolve, reject) => {
         axios
-            .get(`${api}?key=${apiKey}&q=${searchString}`)
+            .get(`${apiUrl}search.json?key=${apiKey}&q=${searchString}`)
             .then(res => resolve(res.data))
             .catch(() => reject());
     },
     forecast: (cityName, resolve, reject) => {
         axios
-            .get(`${api}?key=${apiKey}&q=${cityName}&days=5`)
+            .get(`${apiUrl}forecast.json?key=${apiKey}&q=${cityName}&days=5`)
             .then(resolve)
             .catch(reject)
     }

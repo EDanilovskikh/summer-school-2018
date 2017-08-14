@@ -1,4 +1,4 @@
 {
-  "api" : "http://api.apixu.com/v1/current.json",
+  "apiUrl" : "http://api.apixu.com/v1/",
   "apiKey": "71676e8c9a794ec683e153910172507"
 }
